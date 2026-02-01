@@ -20,12 +20,11 @@ RSS_FEEDS = {
         'https://www.americanbanker.com/feed',
         'https://www.housingwire.com/feed/',
     ],
-    'Salesforce': [
-        'https://www.salesforceben.com/feed/',
-    ],
     'Python & Tech': [
         'https://realpython.com/atom.xml',
-    ]
+    ],
+    'Investment Commentary': [
+        'https://michaeljburry.substack.com/feed',
 }
 
 def fetch_news(feed_urls, max_articles=3):
@@ -94,11 +93,13 @@ def send_to_slack(message):
     if not SLACK_WEBHOOK_URL:
         print("Error: SLACK_WEBHOOK_URL environment variable not set!")
         sys.exit(1)
-    
     slack_data = {
-        'text': message,
-        'unfurl_links': False,
-        'unfurl_media': False
+    'text': message,
+    'username': 'News Bot',
+    'icon_emoji': ':newspaper:',
+    'unfurl_links': False,
+    'unfurl_media': False
+    
     }
     
     try:
