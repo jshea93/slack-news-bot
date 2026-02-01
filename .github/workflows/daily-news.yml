@@ -2,11 +2,7 @@ name: Daily News Briefing
 
 on:
   schedule:
-    # Run at 11:00 AM UTC (6:00 AM EST) every day
-    # Adjust time as needed for your timezone
     - cron: '0 11 * * *'
-  
-  # Allow manual triggering for testing
   workflow_dispatch:
 
 jobs:
@@ -14,86 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Step 1: Get the code
       - name: Checkout repository
         uses: actions/checkout@v3
       
-      # Step 2: Set up Python
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
       
-      # Step 3: Install dependencies
       - name: Install Python packages
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      # Step 4: Run the bot
       - name: Run news bot
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           python news_bot.py
-```
-
-4. Click **"Commit new file"**
-
-**Note on timing:** The cron schedule `'0 11 * * *'` means:
-- 11:00 AM UTC = 6:00 AM EST
-- If you want a different time:
-  - 7 AM EST = `'0 12 * * *'`
-  - 8 AM EST = `'0 13 * * *'`
-  - Use this tool to help: https://crontab.guru
-
----
-
-## **Part 4: Add Your Slack Webhook Securely**
-
-### **Step 6: Add Secret to Repository**
-
-GitHub Secrets keep your webhook URL safe and hidden.
-
-1. In your repository, click **"Settings"** tab (top of page)
-2. In the left sidebar, click **"Secrets and variables"** → **"Actions"**
-3. Click **"New repository secret"**
-4. Fill in:
-   - **Name:** `SLACK_WEBHOOK_URL`
-   - **Secret:** Paste your Slack webhook URL (the one that starts with `https://hooks.slack.com/services/...`)
-5. Click **"Add secret"**
-
-✅ Your webhook is now securely stored!
-
----
-
-## **Part 5: Test Your Bot!**
-
-### **Step 7: Manual Test Run**
-
-Before waiting for the scheduled time, let's test it now:
-
-1. Click the **"Actions"** tab (top of your repository)
-2. You should see "Daily News Briefing" in the left sidebar
-3. Click on it
-4. Click the **"Run workflow"** button (on the right)
-5. Click the green **"Run workflow"** button in the dropdown
-6. Wait about 30-60 seconds
-7. Refresh the page
-
-You should see a workflow run appear. Click on it to see the details.
-
----
-
-### **Step 8: Check the Results**
-
-1. Click on the workflow run
-2. Click on **"send-briefing"** to see the job details
-3. Click on each step to expand and see the logs
-4. You should see output like:
-```
-   🤖 SLACK NEWS BOT STARTING
-   📡 Fetching: https://www.americanbanker.com/feed
-   ✓ Found: [article title]
-   ...
-   ✅ Successfully sent to Slack!
