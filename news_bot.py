@@ -28,8 +28,9 @@ RSS_FEEDS = {
     'Investment Commentary': [
         'https://michaeljburry.substack.com/feed',
         'https://www.zerohedge.com/feed'
-    ]
+    ],
 }
+
 def fetch_news(feed_urls, max_articles=3):
     """Fetch recent articles from RSS feeds"""
     articles = []
