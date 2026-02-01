@@ -14,19 +14,21 @@ import sys
 # Get Slack webhook from environment variable
 SLACK_WEBHOOK_URL = os.environ.get('SLACK_WEBHOOK_URL')
 
-# RSS Feeds organized by category
 RSS_FEEDS = {
     'Banking & Lending': [
         'https://www.americanbanker.com/feed',
         'https://www.housingwire.com/feed/',
+    ],
+    'Salesforce': [
+        'https://www.salesforceben.com/feed/',
     ],
     'Python & Tech': [
         'https://realpython.com/atom.xml',
     ],
     'Investment Commentary': [
         'https://michaeljburry.substack.com/feed',
+    ]
 }
-
 def fetch_news(feed_urls, max_articles=3):
     """Fetch recent articles from RSS feeds"""
     articles = []
