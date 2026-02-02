@@ -29,6 +29,12 @@ RSS_FEEDS = {
         'https://www.noahpinion.blog/feed',
         'https://www.fortmoney.com/feed', 
         'https://www.investing1031.com/feed', 
+    ],
+    'Soccer': [
+        'https://www.evertonfc.com/rss',  # Everton official
+        'https://feeds.bbci.co.uk/sport/football/rss.xml',  # Premier League
+        'https://www.theguardian.com/football/rss',  # European soccer
+        'https://www.ussoccer.com/rss',  # USMNT
     ]
 }
 
