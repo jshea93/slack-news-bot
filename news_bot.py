@@ -34,7 +34,9 @@ RSS_FEEDS = {
         'https://www.evertonfc.com/rss',  # Everton official
         'https://feeds.bbci.co.uk/sport/football/rss.xml',  # Premier League
         'https://www.theguardian.com/football/rss',  # European soccer
-        'https://www.ussoccer.com/rss',  # USMNT
+        'https://www.ussoccer.com/rss',
+        'https://www.theguardian.com/football/rss',
+        'https://www.uefa.com/rssfeed/uefachampionsleague/rss.xml',
     ]
 }
 
