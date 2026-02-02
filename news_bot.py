@@ -26,9 +26,12 @@ RSS_FEEDS = {
         'https://realpython.com/atom.xml',
     ],
     'Investment Commentary': [
-        'https://michaeljburry.substack.com/feed',
-        'https://www.zerohedge.com/feed'
-    ],
+        'https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_headline',
+        'https://feeds.marketwatch.com/marketwatch/topstories/', 
+        'https://www.noahpinion.blog/feed',
+        'https://www.fortmoney.com/feed', 
+        'https://www.investing1031.com/feed', 
+    ]
 }
 
 def fetch_news(feed_urls, max_articles=3):
