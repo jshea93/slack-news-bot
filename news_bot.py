@@ -18,9 +18,7 @@ RSS_FEEDS = {
     'Banking & Lending': [
         'https://www.americanbanker.com/feed',
         'https://www.housingwire.com/feed/',
-    ],
-    'Salesforce': [
-        'https://www.salesforceben.com/feed/',
+        'https://techcrunch.com/tag/fintech/feed/',
     ],
     'Python & Tech': [
         'https://realpython.com/atom.xml',
